@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خبر كان | KHABAR KAN - منصة مغربية للتحليل القانوني</title>
+    <meta name="description" content="خبر كان منصة مغربية مستقلة تهتم بالتحليل القانوني للقضايا الجنائية والجرائم السيبرانية، وتعزيز الوعي بالحقوق والأمن الرقمي.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== المتغيرات الأساسية ===== */
+        :root {
+            --emerald-dark: #183C35;
+            --emerald-soft: #668B78;
+            --gold: #C4A66A;
+            --ivory: #F3F0E8;
+            --ivory-light: #F9F7F2;
+            --white: #FFFFFF;
+            --text-dark: #1E2B27;
+            --text-muted: #4A5B55;
+            --shadow-sm: 0 8px 20px rgba(24, 60, 53, 0.06);
+            --shadow-md: 0 15px 35px rgba(24, 60, 53, 0.08);
+            --shadow-gold: 0 10px 25px rgba(196, 166, 106, 0.12);
+            --border-radius: 24px;
+            --border-radius-sm: 16px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ===== إعادة تعيين عام ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: var(--ivory);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== ألوان مساعدة ===== */
+        .bg-emerald { background-color: var(--emerald-dark); }
+        .bg-ivory { background-color: var(--ivory); }
+        .bg-ivory-light { background-color: var(--ivory-light); }
+        .bg-white { background-color: var(--white); }
+        .text-gold { color: var(--gold); }
+        .text-emerald { color: var(--emerald-dark); }
+        .text-ivory { color: var(--ivory); }
+        .text-muted { color: var(--text-muted); }
+
+        /* ===== الشعار ===== */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold), #b89a5e);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--emerald-dark);
+            font-size: 1.6rem;
+            font-weight: 800;
+            box-shadow: var(--shadow-gold);
+            position: relative;
+        }
+
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 17px;
+            border: 1px solid rgba(196, 166, 106, 0.4);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text .ar {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--emerald-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text .en {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--emerald-soft);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo--light .logo-text .ar { color: var(--ivory); }
+        .logo--light .logo-text .en { color: var(--gold); }
+
+        /* ===== الشريط العلوي ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(243, 240, 232, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(196, 166, 106, 0.15);
+            padding: 14px 0;
+            transition: var(--transition);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--emerald-dark);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--emerald-dark);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--emerald-dark);
+            color: var(--ivory);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: #1f4a40;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--emerald-dark);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-gold:hover {
+            background: #d4b87a;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(196, 166, 106, 0.22);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: var(--ivory);
+            border: 1.5px solid var(--gold);
+        }
+
+        .btn-outline-light:hover {
+            background: var(--gold);
+            color: var(--emerald-dark);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--emerald-dark);
+            cursor: pointer;
+        }
+
+        /* ===== القسم الرئيسي (Hero) ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: var(--emerald-dark);
+            color: var(--ivory);
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 166, 106, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(102, 139, 120, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            border-radius: 40px;
+            background: rgba(196, 166, 106, 0.12);
+            border: 1px solid rgba(196, 166, 106, 0.25);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-badge i {
+            font-size: 0.7rem;
+        }
+
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-title .gold {
+            color: var(--gold);
+        }
+
+        .hero-slogan {
+            font-size: 1.15rem;
+            color: var(--ivory);
+            opacity: 0.9;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .hero-sub {
+            font-size: 0.95rem;
+            color: var(--emerald-soft);
+            margin-bottom: 32px;
+            max-width: 480px;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: fadeUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-emblem {
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(196, 166, 106, 0.15), transparent 60%);
+            border: 1px solid rgba(196, 166, 106, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 80px rgba(196, 166, 106, 0.06);
+        }
+
+        .hero-emblem::before {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border-radius: 50%;
+            border: 1px dashed rgba(196, 166, 106, 0.2);
+        }
+
+        .hero-emblem::after {
+            content: '';
+            position: absolute;
+            inset: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(102, 139, 120, 0.15);
+        }
+
+        .emblem-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .emblem-inner .scale-icon {
+            font-size: 4.5rem;
+            color: var(--gold);
+            opacity: 0.9;
+            filter: drop-shadow(0 0 30px rgba(196, 166, 106, 0.2));
+        }
+
+        .emblem-inner .divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .emblem-inner .digital-print {
+            font-size: 1.8rem;
+            color: var(--emerald-soft);
+            opacity: 0.7;
+        }
+
+        /* ===== الأقسام العامة ===== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 56px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            background: rgba(196, 166, 106, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            color: var(--emerald-dark);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+        }
+
+        /* ===== من نحن ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--emerald-dark);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 2;
+            margin-bottom: 16px;
+        }
+
+        .about-highlight {
+            background: var(--white);
+            border-right: 4px solid var(--gold);
+            padding: 24px 28px;
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-sm);
+            margin-top: 24px;
+        }
+
+        .about-highlight p {
+            margin: 0;
+            color: var(--emerald-dark);
+            font-weight: 500;
+        }
+
+        .about-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .about-card {
+            background: var(--white);
+            border-radius: var(--border-radius-sm);
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(196, 166, 106, 0.1);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-card i {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .about-card h4 {
+            font-size: 0.95rem;
+            color: var(--emerald-dark);
+            font-weight: 700;
+        }
+
+        /* ===== الرؤية والرسالة ===== */
+        .vision {
+            background: var(--emerald-dark);
+            color: var(--ivory);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 166, 106, 0.06) 0%, transparent 70%);
+        }
+
+        .vision .section-title {
+            color: var(--ivory);
+        }
+
+        .vision .section-subtitle {
+            color: rgba(243, 240, 232, 0.7);
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .vision-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(196, 166, 106, 0.12);
+            border-radius: var(--border-radius-sm);
+            padding: 28px;
+            transition: var(--transition);
+        }
+
+        .vision-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(196, 166, 106, 0.3);
+        }
+
+        .vision-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(196, 166, 106, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.3rem;
+        }
+
+        .vision-item h4 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            color: var(--ivory);
+        }
+
+        .vision-item p {
+            font-size: 0.9rem;
+            color: rgba(243, 240, 232, 0.65);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== مجالات الاهتمام ===== */
+        .fields-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .field-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 36px 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(196, 166, 106, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .field-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .field-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .field-card:hover::before {
+            opacity: 1;
+        }
+
+        .field-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 18px;
+            background: rgba(24, 60, 53, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--emerald-dark);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .field-card:hover .field-icon {
+            background: var(--emerald-dark);
+            color: var(--gold);
+        }
+
+        .field-card h3 {
+            font-size: 1.1rem;
+            color: var(--emerald-dark);
+            margin-bottom: 12px;
+        }
+
+        .field-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* ===== المبادئ ===== */
+        .principles {
+            background: var(--ivory-light);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .principle-item {
+            background: var(--white);
+            border-radius: var(--border-radius-sm);
+            padding: 32px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(196, 166, 106, 0.08);
+            transition: var(--transition);
+        }
+
+        .principle-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(196, 166, 106, 0.25);
+        }
+
+        .principle-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: rgba(196, 166, 106, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .principle-item:hover .principle-icon {
+            background: var(--gold);
+            color: var(--emerald-dark);
+        }
+
+        .principle-item h4 {
+            font-size: 0.95rem;
+            color: var(--emerald-dark);
+            font-weight: 700;
+        }
+
+        /* ===== تواصل معنا ===== */
+        .contact {
+            background: var(--emerald-dark);
+            color: var(--ivory);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 166, 106, 0.06) 0%, transparent 70%);
+        }
+
+        .contact .section-title {
+            color: var(--ivory);
+        }
+
+        .contact .section-subtitle {
+            color: rgba(243, 240, 232, 0.7);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 48px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            color: var(--ivory);
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: rgba(243, 240, 232, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 28px;
+        }
+
+        .contact-email {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(196, 166, 106, 0.15);
+            border-radius: var(--border-radius-sm);
+            padding: 18px 22px;
+            margin-bottom: 28px;
+            transition: var(--transition);
+        }
+
+        .contact-email:hover {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .contact-email i {
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+
+        .contact-email span {
+            font-size: 0.95rem;
+            color: var(--ivory);
+            direction: ltr;
+            font-family: 'Cairo', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(196, 166, 106, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ivory);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--emerald-dark);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* ===== نموذج التواصل ===== */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(196, 166, 106, 0.12);
+            border-radius: var(--border-radius);
+            padding: 40px 36px;
+        }
+
+        .contact-form h4 {
+            font-size: 1.2rem;
+            color: var(--ivory);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: rgba(243, 240, 232, 0.7);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(196, 166, 106, 0.15);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--ivory);
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(243, 240, 232, 0.3);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        /* ===== التذييل ===== */
+        .footer {
+            background: #112a25;
+            color: var(--ivory);
+            padding: 48px 0 24px;
+            border-top: 1px solid rgba(196, 166, 106, 0.08);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(243, 240, 232, 0.5);
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: rgba(243, 240, 232, 0.6);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: rgba(243, 240, 232, 0.4);
+        }
+
+        .disclaimer {
+            font-size: 0.78rem;
+            color: rgba(196, 166, 106, 0.5);
+            padding: 12px 20px;
+            background: rgba(196, 166, 106, 0.04);
+            border-radius: 10px;
+            border: 1px solid rgba(196, 166, 106, 0.08);
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .disclaimer i {
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        /* ===== التجاوب ===== */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-content {
+                order: 1;
+            }
+            .hero-visual {
+                order: 0;
+            }
+            .hero-sub {
+                margin: 0 auto 32px;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-emblem {
+                max-width: 280px;
+            }
+            .hero-title {
+                font-size: 2.6rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .vision-grid {
+                grid-template-columns: 1fr;
+            }
+            .fields-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .principles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar .container {
+                padding: 0 16px;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: var(--ivory);
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid rgba(196, 166, 106, 0.15);
+                box-shadow: var(--shadow-md);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .navbar .btn-primary {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding-top: 80px;
+                min-height: auto;
+                padding-bottom: 60px;
+            }
+            .section {
+                padding: 64px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .fields-grid {
+                grid-template-columns: 1fr;
+            }
+            .principles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-form {
+                padding: 28px 22px;
+            }
+            .footer-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .about-visual {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 5px 14px;
+            }
+            .hero-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-visual {
+                grid-template-columns: 1fr;
+            }
+            .logo-text .ar {
+                font-size: 1.2rem;
+            }
+            .logo-text .en {
+                font-size: 0.7rem;
+            }
+            .logo-mark {
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ===== وصولية ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* ===== تحديد النص ===== */
+        ::selection {
+            background: var(--gold);
+            color: var(--emerald-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== شريط التنقل ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#home" class="logo">
+                <div class="logo-mark">خ</div>
+                <div class="logo-text">
+                    <span class="ar">خبر كان</span>
+                    <span class="en">KHABAR KAN</span>
+                </div>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#about">من نحن</a>
+                <a href="#vision">رؤيتنا</a>
+                <a href="#fields">مجالاتنا</a>
+                <a href="#principles">مبادئنا</a>
+                <a href="#contact">تواصل معنا</a>
+            </div>
+
+            <a href="#contact" class="btn btn-primary">تواصل معنا <i class="fas fa-arrow-left"></i></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== القسم الرئيسي ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-circle"></i>
+                    منصة مغربية مستقلة
+                </div>
+                <h1 class="hero-title">
+                    الحقيقة <span class="gold">•</span> القانون <span class="gold">•</span> الأمن السيبراني
+                </h1>
+                <p class="hero-slogan">«تحليل قانوني... بعيون مختلفة»</p>
+                <p class="hero-sub">
+                    منصة مغربية متخصصة في التحليل القانوني للقضايا الجنائية والجرائم السيبرانية،
+                    نُبسّط المعلومة القانونية ونُعزّز الوعي بالحقوق والمسؤوليات والأمن الرقمي.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-gold">تواصل معنا <i class="fas
